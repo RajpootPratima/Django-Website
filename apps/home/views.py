@@ -8,11 +8,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+import os
 
 
 #@login_required(login_url="/login/")
 def index(request):
-    context = {'segment': 'index'}
+    gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
+    context = {'segment': 'index',
+               'gallery':gallery_images_list}
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -30,6 +33,7 @@ def pages(request):
         if load_template == 'admin':
             return HttpResponseRedirect(reverse('admin:index'))
         context['segment'] = load_template
+        context['products'] = ["Tap","Faucets","Jet", "Shower", "Jaccuzi"]
 
         html_template = loader.get_template('home/' + load_template)
         return HttpResponse(html_template.render(context, request))

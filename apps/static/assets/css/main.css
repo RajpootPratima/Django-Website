@@ -33,8 +33,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: var(--font-default);
-  color: var(--color-default);
-  background-color: #000;
+  background-image: url(../img/bg.jpg);
 }
 
 a {
@@ -1220,7 +1219,7 @@ h6 {
 .hero {
   width: 100%;
   min-height: 30vh;
-  background: #000;
+  background-image: url(../img/gallery/gl9.jpg);
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
@@ -1306,4 +1305,12 @@ h6 {
 
 .footer .credits a {
   color: var(--color-primary);
+}
+
+.icon {
+    background: url(../img/MBF-icon.png);
+    height: 70px;
+    width: 70px;
+    display: block;
+    /* Other styles here */
 }
