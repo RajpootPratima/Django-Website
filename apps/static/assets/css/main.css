@@ -1219,7 +1219,7 @@ h6 {
 .hero {
   width: 100%;
   min-height: 30vh;
-  background-image: url(../img/gallery/gl9.jpg);
+  background-image: url(../img/gallery/1938.jpg);
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
@@ -1229,7 +1229,7 @@ h6 {
   margin: 0 0 10px 0;
   font-size: 38px;
   font-weight: 700;
-  color: #fff;
+  color: #6495ed;
   font-family: var(--font-secondary);
 }
 
@@ -1252,7 +1252,7 @@ h6 {
 }
 
 .hero p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 255, 0.6);
   margin-bottom: 30px;
   font-size: 18px;
 }

@@ -16,6 +16,9 @@ def index(request):
     gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
     context = {'segment': 'index',
                'gallery':gallery_images_list}
+    products = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
+                "Libra","Mahi","Dolphin","Rose","Freedom","Florentine",
+                "Square","Flower","Showers","Allied","Sinks"]
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -32,8 +35,13 @@ def pages(request):
 
         if load_template == 'admin':
             return HttpResponseRedirect(reverse('admin:index'))
+        if load_template.split('-')[-1]=='gallery':
+            context['product'] = load_template.split('-')[0]
+            context['product_gallery'] = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/'+context['product'])
         context['segment'] = load_template
-        context['products'] = ["Tap","Faucets","Jet", "Shower", "Jaccuzi"]
+        context['products'] = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
+                "Libra","Mahi","Dolphin","Rose","Freedom","Florentine",
+                "Square","Flower","Showers","Allied","Sinks"]
 
         html_template = loader.get_template('home/' + load_template)
         return HttpResponse(html_template.render(context, request))

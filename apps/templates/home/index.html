@@ -56,25 +56,15 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/index.html" class="active">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span>PRODUCTS</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="/gallery.html">Taps</a></li>
-              <li><a href="/gallery.html">Showers</a></li>
-              <li><a href="/gallery.html">Faucets</a></li>
-              <li><a href="/gallery.html">Bath Components</a></li>
-              <li><a href="/gallery.html">Basins</a></li>
-              <li><a href="/gallery.html">Toilets</a></li>
-              <li class="dropdown"><a href="#"><span>Sub Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                </ul>
-              </li>
+              {% for product in products %}
+              <li><a href="gallery.html">{{ product }}</a></li>
+              {% endfor %}
             </ul>
           </li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="/about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
@@ -98,6 +88,7 @@
         <div class="col-lg-6 text-center">
           <h2>We at Magadh Bath Fittings are here to give you full bath and kitchen fittings solution.</h2>
           <p>Please see the products and place your orders from the contact us tab on top right.</p>
+          Please find our <a href="{{ MAGADHBATHFITS_DIR }}/MagadhCatalogue.pdf" download> catalogue</a> here.
           <a href="contact.html" class="btn-get-started">Place Your Order</a>
         </div>
       </div>
