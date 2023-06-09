@@ -14,11 +14,13 @@ import os
 #@login_required(login_url="/login/")
 def index(request):
     gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
-    context = {'segment': 'index',
-               'gallery':gallery_images_list}
+
     products = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
                 "Libra","Mahi","Dolphin","Rose","Freedom","Florentine",
                 "Square","Flower","Showers","Allied","Sinks"]
+    context = {'segment': 'index',
+               'gallery': gallery_images_list,
+               'products': products}
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
