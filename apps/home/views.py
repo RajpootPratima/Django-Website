@@ -10,14 +10,13 @@ from django.template import loader
 from django.urls import reverse
 import os
 
-
-#@login_required(login_url="/login/")
-def index(request):
-    gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
-
-    products = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
+gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
+products = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
                 "Libra","Mahi","Dolphin","Rose","Freedom","Florentine",
                 "Square","Flower","Showers","Allied","Sinks"]
+#@login_required(login_url="/login/")
+def index(request):
+
     context = {'segment': 'index',
                'gallery': gallery_images_list,
                'products': products}
@@ -37,13 +36,13 @@ def pages(request):
 
         if load_template == 'admin':
             return HttpResponseRedirect(reverse('admin:index'))
-        if load_template.split('-')[-1]=='gallery':
-            context['product'] = load_template.split('-')[0]
+        if load_template.split('-')[-1].split('.')[0] in products :
+            context['product'] = load_template.split('-')[-1].split('.')[0]
             context['product_gallery'] = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/'+context['product'])
+            load_template = 'gallery.html'
         context['segment'] = load_template
-        context['products'] = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
-                "Libra","Mahi","Dolphin","Rose","Freedom","Florentine",
-                "Square","Flower","Showers","Allied","Sinks"]
+        context['gallery'] = gallery_images_list
+        context['products'] = products
 
         html_template = loader.get_template('home/' + load_template)
         return HttpResponse(html_template.render(context, request))
