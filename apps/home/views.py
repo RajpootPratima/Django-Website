@@ -9,6 +9,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 import os
+from django.contrib import messages
+
 
 gallery_images_list = os.listdir(os.path.dirname(__file__).rsplit("/",1)[0]+'/static/assets/img/gallery')
 products = ["Matrix","Creata","Royal","Samrat","Crown","Dynamic",
@@ -31,6 +33,15 @@ def pages(request):
     # All resource paths end in .html.
     # Pick out the html file name from the url. And load that template.
     try:
+        messages.get_messages(request)
+
+        if request.method=='POST':
+            if request.path=='/contact':
+
+                messages.add_message(request, messages.SUCCESS, "Message sent successfully.")
+                html_template = loader.get_template('home/contact.html')
+                return HttpResponse(html_template.render(context, request))
+
 
         load_template = request.path.split('/')[-1]
 
@@ -55,3 +66,7 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+def successView(request):
+    message = {"tags":"success"}
+    return HttpResponse("Success! Thank you for your message.")

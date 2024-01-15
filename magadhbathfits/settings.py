@@ -24,7 +24,12 @@ SECRET_KEY = env('SECRET_KEY', default='S#perS3crEt_007')
 DEBUG = env('DEBUG')
 
 # Assets Management
-ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets') 
+ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
+
+FB_URL = "https://www.facebook.com/MagadhBathFits"
+INSTA_URL='https://www.instagram.com/magadhbathfittings_2017'
+LINKEDIN_URL='https://www.linkedin.com'
+TWITTER_URL='https://www.twitter.com'
 
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1',env('SERVER', default='127.0.0.1'), '129.154.37.59','magadhbathfitting.com','magadhbathfittings.com' ]
