@@ -32,7 +32,7 @@ LINKEDIN_URL='https://www.linkedin.com'
 TWITTER_URL='https://www.twitter.com'
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1',env('SERVER', default='127.0.0.1'), '129.154.37.59','magadhbathfitting.com','magadhbathfittings.com' ]
+ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1',env('SERVER', default='127.0.0.1'), '192.18.137.212','magadhbathfitting.com','magadhbathfittings.com' ]
 CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + env('SERVER', default='127.0.0.1') ]
 
 # Application definition
