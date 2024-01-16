@@ -29,7 +29,7 @@ ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
 FB_URL = "https://www.facebook.com/MagadhBathFits"
 INSTA_URL='https://www.instagram.com/magadhbathfittings_2017'
 LINKEDIN_URL='https://www.linkedin.com'
-TWITTER_URL='https://www.twitter.com'
+TWITTER_URL='https://www.twitter.com/'
 
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1',env('SERVER', default='127.0.0.1'), '192.18.137.212','magadhbathfitting.com','magadhbathfittings.com' ]
